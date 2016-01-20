@@ -16,14 +16,21 @@
   //     }
   //   }).done(callback);
   // };
+// repos.requestRepos = function(callback) {
+//   $.ajax({
+//     url: '/github/users/paulsheridan/repos' +
+//           '?per_page=100' + '&sort=updated',
+//     type: 'GET',
+//     success: function(data, message, xhr) {
+//       repos.all = data;
+//     }
+//   }).done(callback);
+// };
+
 repos.requestRepos = function(callback) {
-  $.ajax({
-    url: '/github/users/paulsheridan/repos' +
-          '?per_page=100' + '&sort=updated',
-    type: 'GET',
-    success: function(data, message, xhr) {
-      repos.all = data;
-    }
+  $.get('/github/users/paulsheridan/repos', function(data) {
+    console.log(data);
+    repos.all = data;
   }).done(callback);
 };
 
