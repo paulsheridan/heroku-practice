@@ -16,7 +16,7 @@
   //     }
   //   }).done(callback);
   // };
-
+repos.requestRepos = function(callback) {
   $.ajax({
     url: '/github/users/paulsheridan/repos' +
           '?per_page=100' + '&sort=updated',
@@ -25,6 +25,7 @@
       repos.all = data;
     }
   }).done(callback);
+};
 
   repos.with = function(attr) {
     return repos.all.filter(function(repo) {
